@@ -10,9 +10,15 @@ public class TaxCalculationService {
     @Autowired
     private TaxBracketRepository taxBracketRepository;
 
-    public double calculateTax(double income) {
-        List<TaxBracket> brackets = taxBracketRepository.findAll();
 
+    public List<TaxBracket> getAllTaxBrackets() {
+        return taxBracketRepository.findAll();
+
+    }
+
+
+    public double calculateTax(double income) {
+        List<TaxBracket> brackets = getAllTaxBrackets();
         double tax = 0.0;
 
         for (TaxBracket bracket : brackets) {

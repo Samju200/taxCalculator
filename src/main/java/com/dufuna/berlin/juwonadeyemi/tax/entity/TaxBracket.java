@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import lombok.Data;
 
+
+@Data
 @Entity
 public class TaxBracket {
     @Id
@@ -13,6 +16,8 @@ public class TaxBracket {
     private double lowerBound;
     private double upperBound;
     private double rate;
+
+
 
 
 }

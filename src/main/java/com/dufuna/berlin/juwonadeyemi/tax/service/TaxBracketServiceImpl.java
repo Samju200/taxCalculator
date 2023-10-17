@@ -4,24 +4,26 @@ import com.dufuna.berlin.juwonadeyemi.tax.entity.TaxBracket;
 import com.dufuna.berlin.juwonadeyemi.tax.repository.TaxBracketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+
 @Service
-public class TaxCalculationService {
+public class TaxBracketServiceImpl implements TaxBracketService {
+
     @Autowired
     private TaxBracketRepository taxBracketRepository;
 
-
+    @Override
     public List<TaxBracket> getAllTaxBrackets() {
         return taxBracketRepository.findAll();
-
     }
 
-
+    @Override
     public double calculateTax(double income) {
-        List<TaxBracket> brackets = getAllTaxBrackets();
+        List<TaxBracket> taxBrackets = getAllTaxBrackets();
         double tax = 0.0;
 
-        for (TaxBracket bracket : brackets) {
+        for (TaxBracket bracket : taxBrackets) {
             if (income >= bracket.getLowerBound() && income <= bracket.getUpperBound()) {
                 tax += (income - bracket.getLowerBound()) * bracket.getRate();
                 break;

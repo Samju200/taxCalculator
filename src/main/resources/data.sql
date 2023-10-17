@@ -1,0 +1,6 @@
+
+    INSERT INTO tax_bracket VALUES (1,0.0, 0.0,18200.0);
+    INSERT INTO tax_bracket VALUES(2,18201.0, 0.19,45000.0);
+    INSERT INTO tax_bracket  VALUES (3,45001.0,  0.325,120000.0);
+    INSERT INTO tax_bracket  VALUES (4,120001.0,0.37,180000.0);
+    INSERT INTO tax_bracket VALUES (5,180001.0, 0.45,9999999.0);

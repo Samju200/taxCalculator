@@ -1,8 +1,5 @@
 package com.dufuna.berlin.juwonadeyemi.tax.repository;
-
 import com.dufuna.berlin.juwonadeyemi.tax.entity.TaxBracket;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

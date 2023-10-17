@@ -25,8 +25,10 @@ public class TaxBracketServiceImpl implements TaxBracketService {
 
         for (TaxBracket bracket : taxBrackets) {
             if (income >= bracket.getLowerBound() && income <= bracket.getUpperBound()) {
-                tax = (income - bracket.getLowerBound()) * bracket.getRate();
+                tax += (income - bracket.getLowerBound()) * bracket.getRate();
                 break;
+            } else if (income > bracket.getUpperBound()) {
+                tax += (bracket.getUpperBound() - bracket.getLowerBound()) * bracket.getRate();
             }
         }
 

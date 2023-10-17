@@ -22,8 +22,11 @@ public class TaxBracket {
     /** The tax rate applicable within this tax bracket. */
     private double rate;
 
-
-
-
+    public TaxBracket(Long id, double lowerBound, double upperBound, double rate) {
+        this.id = id;
+        this.lowerBound = lowerBound;
+        this.upperBound = upperBound;
+        this.rate = rate;
+    }
 }
 

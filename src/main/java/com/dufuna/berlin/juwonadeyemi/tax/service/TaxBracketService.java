@@ -1,9 +1,7 @@
 package com.dufuna.berlin.juwonadeyemi.tax.service;
 
 import com.dufuna.berlin.juwonadeyemi.tax.entity.TaxBracket;
-import com.dufuna.berlin.juwonadeyemi.tax.repository.TaxBracketRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import java.util.List;
 /**
  * This interface defines the contract for a service that handles tax calculations based on income and tax brackets.

@@ -4,13 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Represents a tax bracket with a specified range of income and associated tax rate.
  */
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class TaxBracket {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,11 +29,6 @@ public class TaxBracket {
     /** The tax rate applicable within this tax bracket. */
     private double rate;
 
-    public TaxBracket(Long id, double lowerBound, double upperBound, double rate) {
-        this.id = id;
-        this.lowerBound = lowerBound;
-        this.upperBound = upperBound;
-        this.rate = rate;
-    }
+
 }
 

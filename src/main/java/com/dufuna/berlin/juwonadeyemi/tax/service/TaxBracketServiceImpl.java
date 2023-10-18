@@ -15,7 +15,19 @@ public class TaxBracketServiceImpl implements TaxBracketService {
 
     @Override
     public List<TaxBracket> getAllTaxBrackets() {
-        return taxBracketRepository.findAll();
+
+        List<TaxBracket> taxBrackets = taxBracketRepository.findAll();
+        return taxBrackets.stream().map(this::mapToTaxBracket).toList();
+
+
+    }
+
+    private TaxBracket mapToTaxBracket(TaxBracket taxbracket) {
+        return TaxBracket.builder().
+                id(taxbracket.getId()).
+                lowerBound(taxbracket.getLowerBound()).
+                upperBound(taxbracket.getUpperBound()).
+                rate(taxbracket.getRate()).build();
     }
 
     @Override

@@ -13,7 +13,15 @@ public class TaxBracketServiceImpl implements TaxBracketService {
 
     @Autowired
     private TaxBracketRepository taxBracketRepository;
+    public void createTaxBracket(TaxBracket taxBracket) {
+        TaxBracket taxBracket1  = TaxBracket.builder().
+                id(taxBracket.getId()).
+                lowerBound(taxBracket.getLowerBound()).
+                upperBound(taxBracket.getUpperBound()).
+                rate(taxBracket.getRate()).build();
 
+        taxBracketRepository.save(taxBracket1);
+    }
     @Override
     public List<TaxBracket> getAllTaxBrackets() {
 
@@ -31,15 +39,7 @@ public class TaxBracketServiceImpl implements TaxBracketService {
                 upperBound(taxbracket.getUpperBound()).
                 rate(taxbracket.getRate()).build();
     }
-    public void createTaxBracket(TaxBracket taxBracket) {
-      TaxBracket taxBracket1  = TaxBracket.builder().
-                id(taxBracket.getId()).
-                lowerBound(taxBracket.getLowerBound()).
-                upperBound(taxBracket.getUpperBound()).
-                rate(taxBracket.getRate()).build();
 
-        taxBracketRepository.save(taxBracket1);
-    }
     public TaxBracket getTaxBracketById(Long id) {
         Optional<TaxBracket> taxBracketOptional = taxBracketRepository.findById(id);
         if (taxBracketOptional.isPresent()) {

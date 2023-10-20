@@ -1,5 +1,4 @@
 package com.dufuna.berlin.juwonadeyemi.tax.repository;
-
 import com.dufuna.berlin.juwonadeyemi.tax.entity.TaxBracket;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

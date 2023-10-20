@@ -1,5 +1,4 @@
 package com.dufuna.berlin.juwonadeyemi.tax.controller;
-
 import com.dufuna.berlin.juwonadeyemi.tax.entity.TaxBracket;
 import com.dufuna.berlin.juwonadeyemi.tax.service.TaxBracketServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,6 +21,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+/**
+ * JUnit test class for testing the functionalities of the {@link TaxBracketController}.
+ * It uses Spring's {@code @WebMvcTest} to set up the test environment and performs
+ * various tests on the controller's endpoints.
+ */
 @WebMvcTest(TaxBracketController.class)
 class TaxBracketControllerTest {
     @Autowired

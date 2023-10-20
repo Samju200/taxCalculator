@@ -11,7 +11,6 @@ import java.util.Optional;
 public interface TaxBracketService {
     /**
      * Retrieves all available tax brackets from the database.
-     *
      * @return A list of {@link TaxBracket} objects representing the tax brackets.
      */
     List<TaxBracket> getAllTaxBrackets();
@@ -22,7 +21,6 @@ public interface TaxBracketService {
 
     /**
      * Calculates the tax amount for a given income based on the specified tax brackets and rates.
-     *
      * @param income The income for which the tax should be calculated.
      * @return The calculated tax amount.
      */

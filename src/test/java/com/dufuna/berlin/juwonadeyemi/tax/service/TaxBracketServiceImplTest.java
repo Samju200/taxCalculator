@@ -1,5 +1,4 @@
 package com.dufuna.berlin.juwonadeyemi.tax.service;
-
 import com.dufuna.berlin.juwonadeyemi.tax.entity.TaxBracket;
 import com.dufuna.berlin.juwonadeyemi.tax.repository.TaxBracketRepository;
 import org.assertj.core.api.Assertions;
@@ -25,7 +24,7 @@ import static org.mockito.Mockito.when;
  * This class contains unit tests for the {@link TaxBracketServiceImpl} class using the Mockito framework.
  * It ensures that the tax calculation logic is functioning correctly by mocking the {@link TaxBracketRepository}.
  *
- * @author [Your Name]
+ * @author Juwon Adeyemi
  * @see TaxBracketServiceImpl
  */
 @ExtendWith(MockitoExtension.class)

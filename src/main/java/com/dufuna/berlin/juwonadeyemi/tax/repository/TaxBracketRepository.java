@@ -11,7 +11,6 @@ public interface TaxBracketRepository extends JpaRepository<TaxBracket, Long> {
 
     /**
         * Retrieves all available tax brackets from the database.
-            *
             * @return A list of {@link TaxBracket} objects representing the tax brackets stored in the database.
      */
     List<TaxBracket> findAll();

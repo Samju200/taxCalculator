@@ -63,9 +63,6 @@ class TaxBracketControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string(String.valueOf(expectedTax)));
     }
 
-    @Test
-    void createTaxBracket() {
-    }
 
     @Test
     void getTheTaxBracketApi() throws Exception {

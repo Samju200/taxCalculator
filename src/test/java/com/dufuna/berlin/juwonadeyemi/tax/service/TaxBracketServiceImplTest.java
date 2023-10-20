@@ -3,8 +3,6 @@ package com.dufuna.berlin.juwonadeyemi.tax.service;
 import com.dufuna.berlin.juwonadeyemi.tax.entity.TaxBracket;
 import com.dufuna.berlin.juwonadeyemi.tax.repository.TaxBracketRepository;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,8 +10,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -59,29 +56,40 @@ public class TaxBracketServiceImplTest {
         List <TaxBracket>allTaxBracket = taxBracketServiceImpl.getAllTaxBrackets();
 
         Assertions.assertThat(allTaxBracket).isNotNull();
+        assertEquals(5, allTaxBracket.size());
     }
     @Test
      public void getTaxBracketByIdTest(){
-        Long id = 1L;
-        TaxBracket taxBracket = TaxBracket.builder().id(1L).lowerBound(0.0).upperBound(18200.0).rate(0).build();
+        Long id = 3L;
+        TaxBracket taxBracket = new TaxBracket(1L,0.0,18200,0.0);
 
-        when(taxBracketRepository.findById(id)).thenReturn(Optional.ofNullable(taxBracket));
+       Mockito.when(taxBracketRepository.findById(id)).thenReturn(Optional.of(taxBracket));
         TaxBracket taxBracketById = taxBracketServiceImpl.getTaxBracketById(id);
+        assertEquals(taxBracket, taxBracketById);
 
-        Assertions.assertThat(taxBracketById).isNotNull();
      }
      @Test
     public void updateTaxBracketText(){
-         Long id = 2L;
+         Long id = 6L;
          TaxBracket taxBracket = TaxBracket.builder().id(2L).lowerBound(18201).upperBound(45000.0).rate(0.19).build();
          TaxBracket taxBracket1 = TaxBracket.builder().id(2L).lowerBound(18201).upperBound(45000.0).rate(0.19).build();
 
         when(taxBracketRepository.findById(id)).thenReturn(Optional.ofNullable(taxBracket));
-        when(taxBracketRepository.save(taxBracket)).thenReturn(taxBracket);
+         assert taxBracket != null;
+         when(taxBracketRepository.save(taxBracket)).thenReturn(taxBracket);
 
         TaxBracket updateReturn = taxBracketServiceImpl.updateTaxBracket(id, taxBracket1);
 
         Assertions.assertThat(updateReturn).isNotNull();
+    }
+    @Test
+    public void deleteTaxBracketId(){
+        Long id = 3L;
+        TaxBracket taxBracket = TaxBracket.builder().id(3L).lowerBound(45001.0).upperBound(120000.0).rate(0.325).build();
+
+        doNothing().when(taxBracketRepository).deleteById(id);
+
+        assertAll(() -> taxBracketServiceImpl.deleteTaxBracketById(id));
     }
     @Test
     public void testCalculateTax() {

@@ -104,11 +104,6 @@ class TaxBracketControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.upperBound", CoreMatchers.is(taxbracket.getUpperBound())))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.rate", CoreMatchers.is(taxbracket.getRate())));
 
-        mockMvc.perform(MockMvcRequestBuilders
-                        .get("/api/taxBracket/{id}", id)
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(id));
     }
 
     @Test

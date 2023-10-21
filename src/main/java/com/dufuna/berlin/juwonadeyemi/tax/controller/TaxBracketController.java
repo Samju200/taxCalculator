@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 /**
  * Controller class for managing tax brackets. This class provides RESTful endpoints for
- * calculating taxes, creating, updating, and deleting tax brackets.
+ * calculating taxes, creating, updating,find, and deleting tax brackets .
  * It is annotated with {@code @RestController} to indicate that it handles HTTP requests and
  * returns the response as JSON, and it is mapped to the URL path "/api/taxBracket".
  */
@@ -37,15 +37,7 @@ public class TaxBracketController {
         return taxBracketServiceImpl.calculateTax(income);
     }
 
-    /**
-     * Endpoint to create a new tax bracket.
-     * @param taxBracket The tax bracket to be created, provided in the request body.
-     */
-    @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void createTaxBracket(@RequestBody TaxBracket taxBracket) {
-        taxBracketServiceImpl.createTaxBracket(taxBracket);
-    }
+
     /**
      * Retrieves a list of all tax brackets.
      * @return A list of tax brackets.

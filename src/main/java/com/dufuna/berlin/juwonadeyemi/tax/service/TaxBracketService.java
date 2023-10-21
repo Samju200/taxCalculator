@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * This interface defines the contract for a service that handles tax calculations based on income and tax brackets.
+ * This interface defines the contract for a service that handles
+ * tax calculations based on income and tax brackets
+ * and all operation as find, update, and create.
  */
 public interface TaxBracketService {
     /**
@@ -14,7 +16,7 @@ public interface TaxBracketService {
      * @return A list of {@link TaxBracket} objects representing the tax brackets.
      */
     List<TaxBracket> getAllTaxBrackets();
-    public void createTaxBracket(TaxBracket taxBracket);
+
     TaxBracket getTaxBracketById(Long id);
     public TaxBracket updateTaxBracket(Long id, TaxBracket updatedTaxBracket);
     public void deleteTaxBracketById(Long id);

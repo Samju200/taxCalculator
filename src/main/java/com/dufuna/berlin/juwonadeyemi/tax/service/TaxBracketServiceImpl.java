@@ -4,7 +4,6 @@ import com.dufuna.berlin.juwonadeyemi.tax.entity.TaxBracket;
 import com.dufuna.berlin.juwonadeyemi.tax.repository.TaxBracketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 /**
@@ -17,19 +16,8 @@ public class TaxBracketServiceImpl implements TaxBracketService {
 
     @Autowired
     private TaxBracketRepository taxBracketRepository;
-    /**
-     * Creates a new tax bracket in the database.
-     * @param taxBracket The tax bracket to be created.
-     */
-    public void createTaxBracket(TaxBracket taxBracket) {
-        TaxBracket taxBracket1  = TaxBracket.builder().
-                id(taxBracket.getId()).
-                lowerBound(taxBracket.getLowerBound()).
-                upperBound(taxBracket.getUpperBound()).
-                rate(taxBracket.getRate()).build();
 
-        taxBracketRepository.save(taxBracket1);
-    }
+
     /**
      * Retrieves a list of all tax brackets from the database.
      * @return A list of tax brackets.

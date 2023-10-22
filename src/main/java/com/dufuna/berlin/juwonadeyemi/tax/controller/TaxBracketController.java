@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 /**
  * Controller class for managing tax brackets. This class provides RESTful endpoints for
@@ -33,6 +34,7 @@ public class TaxBracketController {
      */
     @GetMapping("/calculateTax")
     @ResponseStatus(HttpStatus.OK)
+    @RolesAllowed({"user", "admin"})
     public double calculateTax(@RequestParam double income) {
         return taxBracketServiceImpl.calculateTax(income);
     }
@@ -44,6 +46,7 @@ public class TaxBracketController {
      */
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
+    @RolesAllowed("admin")
     public List<TaxBracket> getTheTaxBracketApi(){
         return  taxBracketServiceImpl.getAllTaxBrackets();
     }
@@ -55,6 +58,7 @@ public class TaxBracketController {
      */
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @RolesAllowed("admin")
     public TaxBracket getTaxBracketById(@PathVariable Long id) {
         return taxBracketServiceImpl.getTaxBracketById(id);
     }
@@ -66,6 +70,7 @@ public class TaxBracketController {
      */
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @RolesAllowed(" admin")
     public TaxBracket updateBracketTaxApi(@PathVariable Long id , @RequestBody TaxBracket updatedTaxBracket){
         return taxBracketServiceImpl.updateTaxBracket(id,updatedTaxBracket);
     }
@@ -74,6 +79,7 @@ public class TaxBracketController {
      * @param id The ID of the tax bracket to delete.
      */
     @DeleteMapping("/{id}")
+    @RolesAllowed("admin")
     public void deleteTaxBracketById(@PathVariable Long id){
         taxBracketServiceImpl.deleteTaxBracketById(id);
         System.out.println("The TaxBracket of the id has been deleted");

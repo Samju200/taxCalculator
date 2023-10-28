@@ -70,7 +70,7 @@ public class TaxBracketController {
      */
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(" admin")
+    @RolesAllowed("admin")
     public TaxBracket updateBracketTaxApi(@PathVariable Long id , @RequestBody TaxBracket updatedTaxBracket){
         return taxBracketServiceImpl.updateTaxBracket(id,updatedTaxBracket);
     }

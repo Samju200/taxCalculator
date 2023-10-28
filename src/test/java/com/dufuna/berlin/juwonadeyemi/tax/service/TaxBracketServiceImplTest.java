@@ -57,7 +57,6 @@ public void init(){
     }
     @Test
      public void getTaxBracketByIdTest(){
-        Mockito.when(taxBracketRepository.findAll()).thenReturn(taxBrackets);
         Long id = 3L;
         TaxBracket taxBracket = new TaxBracket(1L,0.0,18200,0.0);
 
